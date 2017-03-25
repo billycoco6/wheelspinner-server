@@ -42,3 +42,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'knock'
 gem 'bcrypt'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'rails_12factor'
