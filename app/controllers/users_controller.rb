@@ -24,7 +24,8 @@ class UsersController < ApplicationController
 
   def register
     @user = User.create(user_params)
-    json_response(@user, :created)
+    # json_response(@user, :created)
+    render json: { success: true }
   end
 
   def user_params
