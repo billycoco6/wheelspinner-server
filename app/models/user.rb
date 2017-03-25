@@ -1,10 +1,10 @@
 class User < ApplicationRecord
   has_secure_password
+  before_save { self.email = email.downcase }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  # def self.from_token_request request
-  #   # Returns a valid user, `nil` or raise `Knock.not_found_exception_class_name`
-  #   # e.g.
-  #   #   email = request.params["auth"] && request.params["auth"]["email"]
-  #   #   self.find_by email: email
-  # end
+  validates :firstname, :lastname, :password, presence: true
+  validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+
+  has_many :spins
 end
