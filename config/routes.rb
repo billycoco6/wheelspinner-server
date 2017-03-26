@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :items
   resources :spins
   resources :categories
+  resources :games
   post 'user_token' => 'user_token#create'
   post 'users/register'
   post 'shops/register'

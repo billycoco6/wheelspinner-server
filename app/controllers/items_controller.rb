@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
   # POST /items
   def create
     @item = Item.new(item_params)
+    @item.spin_id = params[:item][:spin].first[:id]
 
     if @item.save
       render json: @item, status: :created, location: @item
