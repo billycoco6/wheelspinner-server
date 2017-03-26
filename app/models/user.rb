@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :firstname, :lastname, :password, presence: true
   validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
-  has_many :spins
+  has_many :games
 
   def self.from_token_payload payload
     # Returns a valid user, `nil` or raise

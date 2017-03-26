@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
-  # skip_before_action :check_jwt_for_current_user, only: [:api_sign_in, :api_sign_out]
   # respond_to :json
 
   def register
-    @user = User.create(user_params)
+    # @user = User.create(user_params)
+    @user = User.new(user_params)
+    if @user.save
+      render json: { success: true }
+    else
+      render json: { success: false}
+    end
     # json_response(@user, :created)
-    render json: { success: true }
   end
 
   def user_params

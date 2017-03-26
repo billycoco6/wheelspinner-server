@@ -17,6 +17,7 @@ class SpinsController < ApplicationController
   # POST /spins
   def create
     @spin = Spin.new(spin_params)
+    @spin.category_id = params[:spin][:category].first[:id]
 
     if @spin.save
       render json: @spin, status: :created, location: @spin
